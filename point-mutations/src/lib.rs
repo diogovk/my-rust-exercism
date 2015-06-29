@@ -1,10 +1,5 @@
 
-pub fn hamming_distance(dna1: &str, dna2: &str) -> u32 {
-    let mut difference = 0;
-    for (x, y) in dna1.chars().zip(dna2.chars()) {
-        if x != y {
-            difference += 1;
-        }
-    }
-    return difference;
+/// Returns the number of nucleotide differences in two DNAs of same size
+pub fn hamming_distance(dna1: &str, dna2: &str) -> usize {
+    dna1.chars().zip(dna2.chars()).filter(|&(x, y)| x != y).count()
 }
